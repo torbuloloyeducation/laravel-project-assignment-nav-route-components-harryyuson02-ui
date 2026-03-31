@@ -1,6 +1,10 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('home', function () {
     return view('Home');
-}); or Route::view('/', 'welcome');
+});
 
 ##both routes above works but view works only for static webpages.
 
@@ -9,7 +13,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/contact', function () {
-    return view(Contact');
+    return view('Contact');
 });
 
 Route::get('/services', function () {
@@ -20,8 +24,6 @@ Route::get('/showcases',function () {
     return view('showcases');
 });
 
-Route::('/blog', function () {
+Route::get('/blog', function () {
     return view('Blog');
 });
-
-...
