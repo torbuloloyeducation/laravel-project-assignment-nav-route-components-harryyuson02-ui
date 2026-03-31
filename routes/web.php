@@ -1,38 +1,27 @@
-<?php
+Route::get('home', function () {
+    return view('Home');
+}); or Route::view('/', 'welcome');
 
-use Illuminate\Support\Facades\Route;
+##both routes above works but view works only for static webpages.
 
-Route::view('/', 'welcome', [
-    'greeting' => 'Hello, World!',
-    'name' => 'John Doe',
-    'age' => 30,
-    'tasks' => [
-        'Learn Laravel',
-        'Build a project',
-        'Deploy to production',
-    ],
-]);
-
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
-
-Route::get('/formtest', function(){
-    $emails = session()->get('$emails', []);
-
-    return view('formtest',[
-        'emails' => $emails,
-    ]);
+Route::get('/about', function () {
+    return view('About');
 });
 
-Route::post('/formtest', function(){
-    $email = request('email');
-
-    session()->push('$emails', $email);
-
-    return redirect('/formtest');
+Route::get('/contact', function () {
+    return view(Contact');
 });
 
-Route::get('/delete-emails', function(){
-    session()->forget('$emails');
-    return redirect('/formtest');
+Route::get('/services', function () {
+    return view('Services');
 });
+
+Route::get('/showcases',function () {
+    return view('showcases');
+});
+
+Route::('/blog', function () {
+    return view('Blog');
+});
+
+...
